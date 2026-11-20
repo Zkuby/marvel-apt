@@ -1,0 +1,23 @@
+@media (prefers-reduced-motion: no-preference) {
+  html[data-reveal-stage] [data-reveal]:not([data-reveal="group"], [data-reveal="hero"], [data-revealed], :focus-within),
+  html[data-reveal-stage] :is([data-reveal="group"], [data-reveal="hero"], .footer-inner):not([data-revealed], :focus-within) > :not(.sources, .hero-copy, .hero-bottom),
+  html[data-reveal-stage] :is([data-reveal="group"], [data-reveal="hero"], .footer-inner):not([data-revealed], :focus-within) > :is(.sources, .hero-copy, .hero-bottom) > * { opacity: 0; }
+
+  @view-transition { navigation: auto; }
+  ::view-transition-group(root) { animation-duration: 240ms; }
+
+  .site-header { view-transition-name: masthead; }
+  ::view-transition-group(masthead),
+  ::view-transition-new(masthead) { animation: none; }
+  ::view-transition-old(masthead) { display: none; }
+
+  .text-link svg { transition: translate 180ms cubic-bezier(.16, 1, .3, 1); }
+  .text-link:is(:hover, :focus-visible) svg { translate: 3px 0; }
+  .review-controls button {
+    transition: background-color 160ms ease-out, color 160ms ease-out;
+  }
+  .booking-result { animation: confirm-stay 280ms cubic-bezier(.16, 1, .3, 1) both; }
+  @keyframes confirm-stay {
+    from { opacity: .7; transform: translateY(6px); }
+  }
+}

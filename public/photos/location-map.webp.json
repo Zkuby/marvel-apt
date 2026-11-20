@@ -1,0 +1,4 @@
+{
+  "prompt": "Static geographic map rendered from actual OpenStreetMap river polygons and streets using Overpass data dated 2026-11-20T16:47:59Z. North-up EPSG:3857; 1260x700; W/S/E/N 23.861,54.8928,23.896,54.90398110445606. No AI-generated geography, route, or distance overlay. Data source: https://overpass-api.de/api/interpreter. Attribution: © OpenStreetMap contributors, https://www.openstreetmap.org/copyright. Original PNG SHA-256: 1124845fd0a012eee601f78ab117559b6b5ea86cfb28da94d6009c8add311387. WebP derivative of the verified map; normalized label and property-pin anchors recorded in map.json.\n",
+  "createdAt": "2026-11-20T17:21:40.204Z"
+}

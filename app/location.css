@@ -1,0 +1,78 @@
+.location { position: relative; isolation: isolate; background: var(--paper); }
+.location-scene { position: relative; aspect-ratio: 1672 / 941; }
+.location-panorama { position: absolute; inset: 0 0 auto; height: 71%; }
+.location-panorama img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 40%; filter: sepia(.11) saturate(1.04); }
+.location-panorama::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, #f8f9f6e8, #f8f9f675 34%, transparent 58%); }
+.location-info { position: absolute; z-index: 1; top: 5.85%; left: 4.8%; width: 89%; }
+.location-info h2 { font-size: clamp(2.25rem, 4.07vw, 4.25rem); line-height: 1.12; }
+.location-info p { width: 43%; max-width: 40rem; margin-top: 1.2rem; color: var(--pine); font-size: clamp(1.125rem, 1.43vw, 1.5rem); line-height: 1.5; }
+.location-info::after { content: ''; display: block; width: 4.5vw; min-width: 44px; height: 2px; margin-top: 1.5rem; background: var(--brass); }
+.location-house, .location-terrace { --location-mat: clamp(4.5px, .45vw, 7.5px); position: absolute; border: var(--location-mat) solid var(--white); background: var(--white); box-shadow: 0 12px 28px #26372f18; }
+.location-house { z-index: 1; top: 31.9%; left: 73.2%; width: 23.5%; aspect-ratio: 393 / 278; }
+.location-terrace { z-index: 2; top: 43.5%; right: 23.4%; width: 32.3%; aspect-ratio: 540 / 320; }
+.location-house img, .location-terrace img { width: 100%; height: 100%; object-fit: cover; }
+.location-house img { object-position: 50% 56%; }
+.location-details { position: absolute; z-index: 3; left: 4.4%; bottom: 5.9%; width: 55%; }
+.location-facts { display: flex; align-items: center; gap: 1.6vw; padding: 0; margin-bottom: .75rem; list-style: none; font-size: clamp(1rem, 1.43vw, 1.5rem); line-height: 1.5; }
+.location-facts li { padding-inline-start: 1.6vw; border-inline-start: 1px solid var(--brass); }
+.location-facts li:first-child { padding-inline-start: 0; border: 0; }
+.location-contact { display: flex; align-items: center; gap: 2.5vw; }
+.location-contact address { display: flex; align-items: center; gap: .8rem; font-size: clamp(1rem, 1.43vw, 1.5rem); line-height: 1.5; }
+.location-contact address svg { flex: none; width: 26px; height: 32px; color: var(--bronze); }
+.location-contact .button { flex: none; min-height: 52px; padding-inline: 1.5rem; font-size: clamp(1rem, 1.31vw, 1.375rem); }
+.location-map { position: absolute; z-index: 0; right: 0; bottom: 0; width: 30%; }
+.location-map-link { position: relative; display: block; aspect-ratio: 9 / 5; text-decoration: none; }
+.location-map-link:focus-visible { outline-offset: -4px; }
+.location-map-link img { width: 100%; height: 100%; }
+.location-map-label { position: absolute; translate: -50% -50%; padding: .125rem .2rem; background: #f8f9f6e8; color: var(--pine); font-size: 1rem; line-height: 1.2; white-space: nowrap; }
+.location-pin { position: absolute; display: grid; justify-items: center; gap: .15rem; transform: translate(-50%, calc(-100% + 6px)); color: var(--bronze); font-size: 1rem; font-weight: 600; line-height: 1.2; }
+.location-pin > span { padding: .15rem .3rem; background: var(--paper); color: var(--pine); }
+.location-pin svg { width: 36px; height: 36px; fill: var(--paper); }
+.location-map figcaption { justify-content: end; padding: .25rem .75rem .5rem; font-size: 1rem; line-height: 1.4; font-weight: 400; }
+.location-map figcaption a { display: inline-flex; align-items: center; min-height: 44px; }
+@media (width > 1000px) {
+  .location-scene {
+    /* Budget the masthead, its anchor offset and a small gap after the credit. */
+    --location-room: max(34rem, calc(100svh - var(--masthead) - 1.625rem));
+    --location-art-width: calc(var(--location-room) * 1672 / 941);
+    width: 100%;
+    max-height: var(--location-room);
+  }
+  .location-house { width: min(23.5%, var(--location-art-width) * .235); }
+  .location-terrace { width: min(32.3%, var(--location-art-width) * .323); }
+  .location-map { width: clamp(300px, var(--location-art-width) * .30, 30%); }
+}
+@media (max-width: 1100px) and (min-width: 1001px) {
+  .location-info p { width: 54%; }
+  .location-contact { flex-wrap: wrap; gap: .8rem; }
+  .location-details { bottom: 3%; }
+  .location-facts { gap: 1rem; }
+  .location-facts li { padding-inline-start: 1rem; }
+}
+@media (max-width: 1000px) {
+  .location-scene { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); aspect-ratio: auto; padding-block: 2.5rem 1.5rem; }
+  .location-panorama { height: clamp(32rem, 74vw, 42rem); }
+  .location-panorama::after { background: linear-gradient(180deg, #f8f9f6f5, #f8f9f6e8 45%, transparent 72%); }
+  .location-info { position: relative; inset: auto; grid-column: 1 / -1; width: auto; margin-inline: var(--gutter); padding-bottom: clamp(12rem, 30vw, 18rem); }
+  .location-info h2 { max-width: 18ch; font-size: clamp(2.25rem, 5.3vw, 3.5rem); }
+  .location-info p { width: 100%; max-width: 46ch; font-size: 1.125rem; }
+  .location-info::after { margin-top: 1.25rem; }
+  .location-house, .location-terrace { position: relative; inset: auto; grid-row: 2; width: auto; align-self: start; }
+  .location-house { grid-column: 8 / 13; margin: -5rem var(--gutter) 0 -1rem; }
+  .location-terrace { grid-column: 1 / 10; margin: -1rem 0 0 var(--gutter); }
+  .location-details { position: relative; inset: auto; grid-column: 1 / -1; width: auto; margin: 2rem var(--gutter) 0; }
+  .location-facts { flex-wrap: wrap; gap: 1rem 1.25rem; margin-bottom: 1.5rem; font-size: 1rem; }
+  .location-facts li { padding-inline-start: 1.25rem; }
+  .location-contact { flex-wrap: wrap; gap: 1rem 2rem; }
+  .location-contact address, .location-contact .button { font-size: 1rem; }
+  .location-map { position: relative; inset: auto; grid-column: 1 / -1; width: min(100% - 2 * var(--gutter), 36rem); margin: 2rem var(--gutter) 0 auto; }
+}
+@media (max-width: 560px) {
+  .location-info h2 { max-width: 14ch; }
+  .location-info p { max-width: 32ch; }
+  .location-house { grid-column: 7 / 13; margin-top: -5.5rem; }
+  .location-terrace { grid-column: 1 / 11; }
+  .location-facts li:last-child { flex-basis: 100%; padding-inline-start: 0; border: 0; }
+  .location-contact { align-items: start; flex-direction: column; }
+  .location-map { margin-top: 1.5rem; }
+}
